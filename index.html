@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteo Especial - Premios y Participación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 950px;
+            width: 100%;
+        }
+        h1, h2 {
+            color: #1877f2;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        h2 {
+           margin-top: 40px;
+           margin-bottom: 20px;
+        }
+        .items-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .item {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .item h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        .qr-code svg {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        .direct-link a {
+            display: inline-block;
+            background-color: #1877f2;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        .direct-link a:hover {
+            background-color: #166fe5;
+        }
+        .qr-code, .direct-link {
+            display: none; /* Ocultos por defecto, JS decide cuál mostrar */
+        }
+
+        /* --- Estilos para la sección de Premios --- */
+        .premios-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .premio-item {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            width: 150px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .premio-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .premio-item p {
+            font-weight: bold;
+            font-size: 0.9em;
+            margin: 0;
+        }
+        
+        /* Nuevos estilos para mostrar ambos elementos en escritorio */
+        .desktop-view .qr-code,
+        .desktop-view .direct-link {
+            display: block;
+        }
+        .mobile-view .direct-link {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>¡Participa en Nuestro Sorteo!</h1>
+        
+        <div class="items-container">
+            <div class="item">
+                <h3>Lista de Participantes</h3>
+                <div class="qr-code">
+                    <p>Escanea para ver la lista:</p>
+                    <!-- Reemplaza con tu código QR real -->
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+	
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewBox="0 0 2000 2000" x="0" y="0" shape-rendering="crispEdges"><defs/><rect x="0" y="0" width="2000" height="2000" fill="#96f082"/><rect x="840" y="200" width="64" height="64" fill="#000000"/><rect x="1160" y="200" width="64" height="64" fill="#000000"/><rect x="776" y="264" width="64" height="64" fill="#000000"/><rect x="1096" y="264" width="64" height="64" fill="#000000"/><rect x="712" y="328" width="64" height="64" fill="#000000"/><rect x="904" y="328" width="64" height="64" fill="#000000"/><rect x="1096" y="328" width="64" height="64" fill="#000000"/><rect x="1160" y="328" width="64" height="64" fill="#000000"/><rect x="1224" y="328" width="64" height="64" fill="#000000"/><rect x="776" y="392" width="64" height="64" fill="#000000"/><rect x="968" y="392" width="64" height="64" fill="#000000"/><rect x="1160" y="392" width="64" height="64" fill="#000000"/><rect x="1224" y="392" width="64" height="64" fill="#000000"/><rect x="776" y="456" width="64" height="64" fill="#000000"/><rect x="968" y="456" width="64" height="64" fill="#000000"/><rect x="1096" y="456" width="64" height="64" fill="#000000"/><rect x="840" y="520" width="64" height="64" fill="#000000"/><rect x="904" y="520" width="64" height="64" fill="#000000"/><rect x="968" y="520" width="64" height="64" fill="#000000"/><rect x="1096" y="520" width="64" height="64" fill="#000000"/><rect x="1160" y="520" width="64" height="64" fill="#000000"/><rect x="712" y="584" width="64" height="64" fill="#000000"/><rect x="840" y="584" width="64" height="64" fill="#000000"/><rect x="968" y="584" width="64" height="64" fill="#000000"/><rect x="1096" y="584" width="64" height="64" fill="#000000"/><rect x="1224" y="584" width="64" height="64" fill="#000000"/><rect x="712" y="648" width="64" height="64" fill="#000000"/><rect x="904" y="648" width="64" height="64" fill="#000000"/><rect x="1032" y="648" width="64" height="64" fill="#000000"/><rect x="1224" y="648" width="64" height="64" fill="#000000"/><rect x="200" y="712" width="64" height="64" fill="#000000"/><rect x="264" y="712" width="64" height="64" fill="#000000"/><rect x="328" y="712" width="64" height="64" fill="#000000"/><rect x="456" y="712" width="64" height="64" fill="#000000"/><rect x="520" y="712" width="64" height="64" fill="#000000"/><rect x="584" y="712" width="64" height="64" fill="#000000"/><rect x="648" y="712" width="64" height="64" fill="#000000"/><rect x="712" y="712" width="64" height="64" fill="#000000"/><rect x="968" y="712" width="64" height="64" fill="#000000"/><rect x="1032" y="712" width="64" height="64" fill="#000000"/><rect x="1224" y="712" width="64" height="64" fill="#000000"/><rect x="1288" y="712" width="64" height="64" fill="#000000"/><rect x="1352" y="712" width="64" height="64" fill="#000000"/><rect x="1608" y="712" width="64" height="64" fill="#000000"/><rect x="264" y="776" width="64" height="64" fill="#000000"/><rect x="328" y="776" width="64" height="64" fill="#000000"/><rect x="392" y="776" width="64" height="64" fill="#000000"/><rect x="776" y="776" width="64" height="64" fill="#000000"/><rect x="904" y="776" width="64" height="64" fill="#000000"/><rect x="968" y="776" width="64" height="64" fill="#000000"/><rect x="1032" y="776" width="64" height="64" fill="#000000"/><rect x="1096" y="776" width="64" height="64" fill="#000000"/><rect x="1160" y="776" width="64" height="64" fill="#000000"/><rect x="1224" y="776" width="64" height="64" fill="#000000"/><rect x="1352" y="776" width="64" height="64" fill="#000000"/><rect x="1480" y="776" width="64" height="64" fill="#000000"/><rect x="1672" y="776" width="64" height="64" fill="#000000"/><rect x="328" y="840" width="64" height="64" fill="#000000"/><rect x="392" y="840" width="64" height="64" fill="#000000"/><rect x="456" y="840" width="64" height="64" fill="#000000"/><rect x="584" y="840" width="64" height="64" fill="#000000"/><rect x="648" y="840" width="64" height="64" fill="#000000"/><rect x="712" y="840" width="64" height="64" fill="#000000"/><rect x="840" y="840" width="64" height="64" fill="#000000"/><rect x="904" y="840" width="64" height="64" fill="#000000"/><rect x="968" y="840" width="64" height="64" fill="#000000"/><rect x="1224" y="840" width="64" height="64" fill="#000000"/><rect x="1288" y="840" width="64" height="64" fill="#000000"/><rect x="1352" y="840" width="64" height="64" fill="#000000"/><rect x="1544" y="840" width="64" height="64" fill="#000000"/><rect x="392" y="904" width="64" height="64" fill="#000000"/><rect x="456" y="904" width="64" height="64" fill="#000000"/><rect x="520" y="904" width="64" height="64" fill="#000000"/><rect x="712" y="904" width="64" height="64" fill="#000000"/><rect x="776" y="904" width="64" height="64" fill="#000000"/><rect x="840" y="904" width="64" height="64" fill="#000000"/><rect x="968" y="904" width="64" height="64" fill="#000000"/><rect x="1224" y="904" width="64" height="64" fill="#000000"/><rect x="1352" y="904" width="64" height="64" fill="#000000"/><rect x="1416" y="904" width="64" height="64" fill="#000000"/><rect x="1672" y="904" width="64" height="64" fill="#000000"/><rect x="1736" y="904" width="64" height="64" fill="#000000"/><rect x="200" y="968" width="64" height="64" fill="#000000"/><rect x="328" y="968" width="64" height="64" fill="#000000"/><rect x="584" y="968" width="64" height="64" fill="#000000"/><rect x="648" y="968" width="64" height="64" fill="#000000"/><rect x="840" y="968" width="64" height="64" fill="#000000"/><rect x="904" y="968" width="64" height="64" fill="#000000"/><rect x="1032" y="968" width="64" height="64" fill="#000000"/><rect x="1096" y="968" width="64" height="64" fill="#000000"/><rect x="1224" y="968" width="64" height="64" fill="#000000"/><rect x="1352" y="968" width="64" height="64" fill="#000000"/><rect x="1416" y="968" width="64" height="64" fill="#000000"/><rect x="1608" y="968" width="64" height="64" fill="#000000"/><rect x="1672" y="968" width="64" height="64" fill="#000000"/><rect x="1736" y="968" width="64" height="64" fill="#000000"/><rect x="328" y="1032" width="64" height="64" fill="#000000"/><rect x="392" y="1032" width="64" height="64" fill="#000000"/><rect x="520" y="1032" width="64" height="64" fill="#000000"/><rect x="648" y="1032" width="64" height="64" fill="#000000"/><rect x="712" y="1032" width="64" height="64" fill="#000000"/><rect x="776" y="1032" width="64" height="64" fill="#000000"/><rect x="840" y="1032" width="64" height="64" fill="#000000"/><rect x="904" y="1032" width="64" height="64" fill="#000000"/><rect x="1032" y="1032" width="64" height="64" fill="#000000"/><rect x="1224" y="1032" width="64" height="64" fill="#000000"/><rect x="1480" y="1032" width="64" height="64" fill="#000000"/><rect x="1672" y="1032" width="64" height="64" fill="#000000"/><rect x="1736" y="1032" width="64" height="64" fill="#000000"/><rect x="200" y="1096" width="64" height="64" fill="#000000"/><rect x="328" y="1096" width="64" height="64" fill="#000000"/><rect x="456" y="1096" width="64" height="64" fill="#000000"/><rect x="520" y="1096" width="64" height="64" fill="#000000"/><rect x="584" y="1096" width="64" height="64" fill="#000000"/><rect x="648" y="1096" width="64" height="64" fill="#000000"/><rect x="776" y="1096" width="64" height="64" fill="#000000"/><rect x="840" y="1096" width="64" height="64" fill="#000000"/><rect x="1032" y="1096" width="64" height="64" fill="#000000"/><rect x="1096" y="1096" width="64" height="64" fill="#000000"/><rect x="1160" y="1096" width="64" height="64" fill="#000000"/><rect x="1224" y="1096" width="64" height="64" fill="#000000"/><rect x="1288" y="1096" width="64" height="64" fill="#000000"/><rect x="1352" y="1096" width="64" height="64" fill="#000000"/><rect x="1544" y="1096" width="64" height="64" fill="#000000"/><rect x="1672" y="1096" width="64" height="64" fill="#000000"/><rect x="1736" y="1096" width="64" height="64" fill="#000000"/><rect x="264" y="1160" width="64" height="64" fill="#000000"/><rect x="392" y="1160" width="64" height="64" fill="#000000"/><rect x="456" y="1160" width="64" height="64" fill="#000000"/><rect x="648" y="1160" width="64" height="64" fill="#000000"/><rect x="776" y="1160" width="64" height="64" fill="#000000"/><rect x="840" y="1160" width="64" height="64" fill="#000000"/><rect x="904" y="1160" width="64" height="64" fill="#000000"/><rect x="1032" y="1160" width="64" height="64" fill="#000000"/><rect x="1096" y="1160" width="64" height="64" fill="#000000"/><rect x="1352" y="1160" width="64" height="64" fill="#000000"/><rect x="1416" y="1160" width="64" height="64" fill="#000000"/><rect x="200" y="1224" width="64" height="64" fill="#000000"/><rect x="328" y="1224" width="64" height="64" fill="#000000"/><rect x="392" y="1224" width="64" height="64" fill="#000000"/><rect x="520" y="1224" width="64" height="64" fill="#000000"/><rect x="584" y="1224" width="64" height="64" fill="#000000"/><rect x="776" y="1224" width="64" height="64" fill="#000000"/><rect x="968" y="1224" width="64" height="64" fill="#000000"/><rect x="1224" y="1224" width="64" height="64" fill="#000000"/><rect x="1288" y="1224" width="64" height="64" fill="#000000"/><rect x="1352" y="1224" width="64" height="64" fill="#000000"/><rect x="1416" y="1224" width="64" height="64" fill="#000000"/><rect x="1480" y="1224" width="64" height="64" fill="#000000"/><rect x="1608" y="1224" width="64" height="64" fill="#000000"/><rect x="1736" y="1224" width="64" height="64" fill="#000000"/><rect x="712" y="1288" width="64" height="64" fill="#000000"/><rect x="904" y="1288" width="64" height="64" fill="#000000"/><rect x="968" y="1288" width="64" height="64" fill="#000000"/><rect x="1032" y="1288" width="64" height="64" fill="#000000"/><rect x="1096" y="1288" width="64" height="64" fill="#000000"/><rect x="1224" y="1288" width="64" height="64" fill="#000000"/><rect x="1480" y="1288" width="64" height="64" fill="#000000"/><rect x="1672" y="1288" width="64" height="64" fill="#000000"/><rect x="712" y="1352" width="64" height="64" fill="#000000"/><rect x="840" y="1352" width="64" height="64" fill="#000000"/><rect x="904" y="1352" width="64" height="64" fill="#000000"/><rect x="968" y="1352" width="64" height="64" fill="#000000"/><rect x="1032" y="1352" width="64" height="64" fill="#000000"/><rect x="1096" y="1352" width="64" height="64" fill="#000000"/><rect x="1160" y="1352" width="64" height="64" fill="#000000"/><rect x="1224" y="1352" width="64" height="64" fill="#000000"/><rect x="1352" y="1352" width="64" height="64" fill="#000000"/><rect x="1480" y="1352" width="64" height="64" fill="#000000"/><rect x="1544" y="1352" width="64" height="64" fill="#000000"/><rect x="1672" y="1352" width="64" height="64" fill="#000000"/><rect x="1736" y="1352" width="64" height="64" fill="#000000"/><rect x="712" y="1416" width="64" height="64" fill="#000000"/><rect x="776" y="1416" width="64" height="64" fill="#000000"/><rect x="968" y="1416" width="64" height="64" fill="#000000"/><rect x="1096" y="1416" width="64" height="64" fill="#000000"/><rect x="1224" y="1416" width="64" height="64" fill="#000000"/><rect x="1480" y="1416" width="64" height="64" fill="#000000"/><rect x="1544" y="1416" width="64" height="64" fill="#000000"/><rect x="1672" y="1416" width="64" height="64" fill="#000000"/><rect x="1736" y="1416" width="64" height="64" fill="#000000"/><rect x="712" y="1480" width="64" height="64" fill="#000000"/><rect x="840" y="1480" width="64" height="64" fill="#000000"/><rect x="904" y="1480" width="64" height="64" fill="#000000"/><rect x="968" y="1480" width="64" height="64" fill="#000000"/><rect x="1096" y="1480" width="64" height="64" fill="#000000"/><rect x="1160" y="1480" width="64" height="64" fill="#000000"/><rect x="1224" y="1480" width="64" height="64" fill="#000000"/><rect x="1288" y="1480" width="64" height="64" fill="#000000"/><rect x="1352" y="1480" width="64" height="64" fill="#000000"/><rect x="1416" y="1480" width="64" height="64" fill="#000000"/><rect x="1480" y="1480" width="64" height="64" fill="#000000"/><rect x="1608" y="1480" width="64" height="64" fill="#000000"/><rect x="840" y="1544" width="64" height="64" fill="#000000"/><rect x="904" y="1544" width="64" height="64" fill="#000000"/><rect x="1032" y="1544" width="64" height="64" fill="#000000"/><rect x="1096" y="1544" width="64" height="64" fill="#000000"/><rect x="1160" y="1544" width="64" height="64" fill="#000000"/><rect x="1224" y="1544" width="64" height="64" fill="#000000"/><rect x="1288" y="1544" width="64" height="64" fill="#000000"/><rect x="1416" y="1544" width="64" height="64" fill="#000000"/><rect x="1480" y="1544" width="64" height="64" fill="#000000"/><rect x="712" y="1608" width="64" height="64" fill="#000000"/><rect x="840" y="1608" width="64" height="64" fill="#000000"/><rect x="968" y="1608" width="64" height="64" fill="#000000"/><rect x="1032" y="1608" width="64" height="64" fill="#000000"/><rect x="1160" y="1608" width="64" height="64" fill="#000000"/><rect x="1224" y="1608" width="64" height="64" fill="#000000"/><rect x="1544" y="1608" width="64" height="64" fill="#000000"/><rect x="1736" y="1608" width="64" height="64" fill="#000000"/><rect x="712" y="1672" width="64" height="64" fill="#000000"/><rect x="776" y="1672" width="64" height="64" fill="#000000"/><rect x="904" y="1672" width="64" height="64" fill="#000000"/><rect x="1224" y="1672" width="64" height="64" fill="#000000"/><rect x="1480" y="1672" width="64" height="64" fill="#000000"/><rect x="1544" y="1672" width="64" height="64" fill="#000000"/><rect x="1736" y="1672" width="64" height="64" fill="#000000"/><rect x="712" y="1736" width="64" height="64" fill="#000000"/><rect x="840" y="1736" width="64" height="64" fill="#000000"/><rect x="968" y="1736" width="64" height="64" fill="#000000"/><rect x="1032" y="1736" width="64" height="64" fill="#000000"/><rect x="1096" y="1736" width="64" height="64" fill="#000000"/><rect x="1224" y="1736" width="64" height="64" fill="#000000"/><rect x="1480" y="1736" width="64" height="64" fill="#000000"/><rect x="1544" y="1736" width="64" height="64" fill="#000000"/><rect x="1672" y="1736" width="64" height="64" fill="#000000"/><rect x="1736" y="1736" width="64" height="64" fill="#000000"/><svg version="1.1" id="Ebene_1" x="200" y="200" viewBox="0 0 700 700" style="enable-background:new 0 0 700 700;" xml:space="preserve" width="448" height="448" shape-rendering="auto">
+
+<path fill="#000000" d="M21.2-0.1C9.5-0.1-0.1,9.5-0.1,21.2v78.8v100v100v100v100v100v78.8c0,11.7,9.5,21.3,21.3,21.3h657.6  c11.7,0,21.3-9.5,21.3-21.3V600V500V400V300V200v-100V21.2c0-11.7-9.5-21.3-21.3-21.3H21.2z M600,200v100v100v100v87.8  c0,6.8-5.5,12.2-12.2,12.2H112.2c-6.8,0-12.2-5.5-12.2-12.2V500V400V300V200v-87.8c0-6.8,5.5-12.2,12.2-12.2h475.6  c6.8,0,12.2,5.5,12.2,12.2V200z"/>
+</svg>
+<svg version="1.1" id="Ebene_1" x="200" y="200" viewBox="0 0 700 700" style="enable-background:new 0 0 700 700;" xml:space="preserve" width="448" height="448" shape-rendering="auto">
+
+<path fill="#000000" d="M500,400V300v-78.8c0-11.7-9.5-21.3-21.3-21.3H221.2c-11.7,0-21.3,9.5-21.3,21.3V300v100v78.8    c0,11.7,9.5,21.3,21.3,21.3h257.5c11.7,0,21.3-9.5,21.3-21.3V400z"/>
+</svg>
+<svg version="1.1" id="Ebene_1" x="1352" y="200" viewBox="0 0 700 700" style="enable-background:new 0 0 700 700;" xml:space="preserve" width="448" height="448" shape-rendering="auto">
+
+<path fill="#000000" d="M21.2-0.1C9.5-0.1-0.1,9.5-0.1,21.2v78.8v100v100v100v100v100v78.8c0,11.7,9.5,21.3,21.3,21.3h657.6  c11.7,0,21.3-9.5,21.3-21.3V600V500V400V300V200v-100V21.2c0-11.7-9.5-21.3-21.3-21.3H21.2z M600,200v100v100v100v87.8  c0,6.8-5.5,12.2-12.2,12.2H112.2c-6.8,0-12.2-5.5-12.2-12.2V500V400V300V200v-87.8c0-6.8,5.5-12.2,12.2-12.2h475.6  c6.8,0,12.2,5.5,12.2,12.2V200z"/>
+</svg>
+<svg version="1.1" id="Ebene_1" x="1352" y="200" viewBox="0 0 700 700" style="enable-background:new 0 0 700 700;" xml:space="preserve" width="448" height="448" shape-rendering="auto">
+
+<path fill="#000000" d="M500,400V300v-78.8c0-11.7-9.5-21.3-21.3-21.3H221.2c-11.7,0-21.3,9.5-21.3,21.3V300v100v78.8    c0,11.7,9.5,21.3,21.3,21.3h257.5c11.7,0,21.3-9.5,21.3-21.3V400z"/>
+</svg>
+<svg version="1.1" id="Ebene_1" x="200" y="1352" viewBox="0 0 700 700" style="enable-background:new 0 0 700 700;" xml:space="preserve" width="448" height="448" shape-rendering="auto">
+
+<path fill="#000000" d="M21.2-0.1C9.5-0.1-0.1,9.5-0.1,21.2v78.8v100v100v100v100v100v78.8c0,11.7,9.5,21.3,21.3,21.3h657.6  c11.7,0,21.3-9.5,21.3-21.3V600V500V400V300V200v-100V21.2c0-11.7-9.5-21.3-21.3-21.3H21.2z M600,200v100v100v100v87.8  c0,6.8-5.5,12.2-12.2,12.2H112.2c-6.8,0-12.2-5.5-12.2-12.2V500V400V300V200v-87.8c0-6.8,5.5-12.2,12.2-12.2h475.6  c6.8,0,12.2,5.5,12.2,12.2V200z"/>
+</svg>
+<svg version="1.1" id="Ebene_1" x="200" y="1352" viewBox="0 0 700 700" style="enable-background:new 0 0 700 700;" xml:space="preserve" width="448" height="448" shape-rendering="auto">
+
+<path fill="#000000" d="M500,400V300v-78.8c0-11.7-9.5-21.3-21.3-21.3H221.2c-11.7,0-21.3,9.5-21.3,21.3V300v100v78.8    c0,11.7,9.5,21.3,21.3,21.3h257.5c11.7,0,21.3-9.5,21.3-21.3V400z"/>
+</svg>
+</svg>
+
+</svg>
+
+                </div>
+                <div class="direct-link">
+                    <a href="https://docs.google.com/spreadsheets/d/1HNG4MMzKNUBvL1lNNW_6Y79YR6jQPwZ9CJOZXi3vyTI/edit?usp=sharing" target="_blank">Ver Lista de Participantes</a>
+                </div>
+            </div>
+            <div class="item">
+                <h3>Pago de Inscripción</h3>
+                <div class="qr-code">
+                    <p>Escanea para pagar con Yape:</p>
+                    <img src="https://drive.google.com/uc?export=view&id=1nIi_m9wpmIzsM6G2_3ltwqSqDM2QH_F_" alt="QR Yape">
+                </div>
+                <div class="direct-link">
+                    <a href="https://drive.google.com/file/d/1nIi_m9wpmIzsM6G2_3ltwqSqDM2QH_F_/view?usp=sharing" target="_blank">Pagar con Yape</a>
+                </div>
+            </div>
+            <div class="item">
+                <h3>Transmisión en Vivo</h3>
+                <div class="qr-code">
+                    <p>Escanea para ver el sorteo:</p>
+                    <!-- Reemplaza con tu código QR real -->
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <rect x="0" y="0" width="150" height="150" fill="#ffffff" />
+                        <rect x="20" y="20" width="30" height="30" fill="#000000" />
+                        <rect x="60" y="20" width="10" height="10" fill="#000000" />
+                        <!-- Agrega más elementos para formar tu código QR -->
+                    </svg>
+                </div>
+                <div class="direct-link">
+                    <a href="https://drive.google.com/file/d/1nIi_m9wpmIzsM6G2_3ltwqSqDM2QH_F_/view?usp=sharing" target="_blank">Ver Transmisión</a>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>🏆 Nuestros Grandes Premios 🏆</h2>
+        <div class="premios-container">
+            <div class="premio-item">
+                <img src="https://drive.google.com/uc?export=view&id=1nIi_m9wpmIzsM6G2_3ltwqSqDM2QH_F_" alt="Premio 1">
+                <p>Descripción del Premio 1</p>
+            </div>
+            <div class="premio-item">
+                <img src="https://drive.google.com/uc?export=view&id=ID_ARCHIVO_2" alt="Premio 2">
+                <p>Descripción del Premio 2</p>
+            </div>
+            <div class="premio-item">
+                <img src="https://drive.google.com/uc?export=view&id=ID_ARCHIVO_3" alt="Premio 3">
+                <p>Descripción del Premio 3</p>
+            </div>
+            <div class="premio-item">
+                <img src="https://drive.google.com/uc?export=view&id=ID_ARCHIVO_4" alt="Premio 4">
+                <p>Descripción del Premio 4</p>
+            </div>
+            <div class="premio-item">
+                <img src="https://drive.google.com/uc?export=view&id=ID_ARCHIVO_5" alt="Premio 5">
+                <p>Descripción del Premio 5</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function detectarDispositivo() {
+            const esCelular = window.matchMedia("only screen and (max-width: 768px)").matches;
+            const items = document.querySelectorAll('.item');
+            
+            items.forEach(item => {
+                // Remover clases anteriores
+                item.classList.remove('desktop-view', 'mobile-view');
+                
+                // Aplicar la clase correspondiente
+                if (esCelular) {
+                    item.classList.add('mobile-view');
+                } else {
+                    item.classList.add('desktop-view');
+                }
+            });
+        }
+        
+        window.onload = detectarDispositivo;
+        window.onresize = detectarDispositivo;
+    </script>
+
+</body>
+</html>
